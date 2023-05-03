@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>To-Do App</title>
+  </head>
+  <body>
+    <script>
+      listItems = [];
+      function changeCheckBoxState(e){
+        var listItemIndex = (e.target.parentElement).parentElement.getAttribute('id');
+        listItems[listItemIndex]['checked']= e.target.checked;
+        refreshlistItemsContainer();
+      }
+      function addListItem(e) {
+        var listItemText = document.getElementById("textbox1").value;
+        if (listItemText==""){
+          return;
+        }
+        listItems.push({"text":listItemText,"checked":false});
+        refreshlistItemsContainer();
+        document.getElementById("textbox1").value = "";
+      }
+      function deleteListItem(e){
+        var listItemIndex = (e.target.parentElement).parentElement.getAttribute('id');
+        listItems.splice(listItemIndex,1);
+        refreshlistItemsContainer();
+      }
+      function refreshlistItemsContainer(){
+        var listItemsContainerHTML = "";
+        document.getElementById("listItemsContainer").innerHTML=listItemsContainerHTML;
+        listItems.forEach((li,index) => {
+          listItemsContainerHTML +=
+            `<div id=${index} class="listItem">
+            <div><input type="checkbox" id="checkbox${index}" ${listItems[index]["checked"]?"checked":""} onclick=changeCheckBoxState(event)></div>
+            <div id="text${index}" ${listItems[index]["checked"]?"class=\"listItemSelected\"":"class=\"listItem\""}>${li["text"]}</div>
+            <div><button class="delete" onclick="deleteListItem(event)" id="button${index}">DELETE</button></div>
+            </div>`;
+        document.getElementById("listItemsContainer").innerHTML = listItemsContainerHTML;
+        });
+      }
+    </script>
+    <div class="app">
+      <h1 class="heading">Simple To-Do App</h1>
+      <h4 class="to-do">Please add to-do item(s) through the input field :</h4>
+    </div>
+    <div class="input">
+      <input type="text" class="textbox" id="textbox1" name="textbox1" />
+      <button onclick="addListItem(event)">SUBMIT</button>
+    </div>
+    <div class="listItemsContainer" id="listItemsContainer"></div>
+  </body>
+</html>

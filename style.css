@@ -1,0 +1,58 @@
+button{
+    border-radius: 0%;
+    border: none;
+}
+.heading{
+    margin-left: 60px;
+    margin-top: 60px;
+}
+.to-do{
+    font-weight: 100;
+    margin-left: 60px;
+}
+.input{
+    display: flex;
+}
+.input input{
+    font-size: large;
+}
+.textbox{
+    margin-left: 60px;
+    padding-top: 20px;
+    padding-right: 250px;
+}
+.input button{
+    width: 100px;
+    background-color:  #2ECC71;
+}
+.listItem{
+    height: 12px;
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: 5% auto 10%;
+}
+#listItemsContainer{
+    width: 540px;
+    margin-left: 60px;
+}
+.listItemsContainer div[id^='text'].listItem{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    font-style: italic;
+    margin-top: auto;
+    margin-bottom: 10px;
+}
+.listItemsContainer div[id^='text'].listItemSelected{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    text-decoration: line-through;
+    font-style: italic;
+    color: #FF5F15;
+    margin-top: auto;
+    margin-bottom: 10px;
+}
+.listItemsContainer button{
+    height: 25px;
+    width: 100px;
+    background-color: #FF5F15;
+}
