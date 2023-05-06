@@ -1,0 +1,13 @@
+div .input{
+    display: flex;
+}
+input#task-text{
+    font-size: large;
+    margin-left: 60px;
+    padding-top: 20px;
+    padding-right: 250px;
+}
+button.submit{
+    width: 100px;
+    background-color:  #2ECC71;
+}
