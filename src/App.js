@@ -21,7 +21,11 @@ class App extends React.Component {
     tasklist.splice(childData,1);
     this.setState({ listitems: tasklist });
     }
-    
+    else if (operation==='state-change'){
+      tasklist = this.state.listitems;
+      tasklist[childData]['checked']=!tasklist[childData]['checked'];
+      this.setState({ listitems: tasklist });
+      }
   }
   render() {
     return (
