@@ -28,6 +28,7 @@ class App extends React.Component {
       }
   }
   render() {
+    console.log(this.state.listitems);
     return (
       <div className="App">
         <Header />
